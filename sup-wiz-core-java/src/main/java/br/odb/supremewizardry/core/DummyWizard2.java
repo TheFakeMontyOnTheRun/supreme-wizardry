@@ -12,11 +12,6 @@ public class DummyWizard2 extends Wizard {
 		
 	}
 
-	@Override
-	public void init() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void onDeath() {

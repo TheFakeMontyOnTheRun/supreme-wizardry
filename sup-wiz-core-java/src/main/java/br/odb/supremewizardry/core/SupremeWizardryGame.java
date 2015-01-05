@@ -4,36 +4,52 @@ import br.odb.gameapp.ConsoleApplication;
 
 public class SupremeWizardryGame extends ConsoleApplication {
 
-	
-	
 	private DummyWizard1 wizard1;
 	private DummyWizard2 wizard2;
+	public final Wizard playerWizard;
+	public final Wizard CPUWizard;
 
-	@Override
-	public ConsoleApplication init() {
+	public SupremeWizardryGame() {
+		super();
 		
 		wizard1 = new DummyWizard1();
 		wizard2 = new DummyWizard2();
+
+		playerWizard = wizard1;
+		CPUWizard = wizard2;
+	}
+	
+	
+	@Override
+	public ConsoleApplication init() {
 		
-		return super.init();
+		super.init();
+		
+		this.registerCommand(new CastSpellCommand());
+		this.registerCommand(new DisplayStatusCommand());
+		
+		return this;
 	}
 
 	@Override
 	public void onDataEntered(String data) {
-		// TODO Auto-generated method stub
+
 		super.onDataEntered(data);
+
 	}
 
 	@Override
 	public ConsoleApplication showUI() {
-		// TODO Auto-generated method stub
+		this.getClient().printNormal( this.playerWizard.toString() );
 		return super.showUI();
 	}
 
 	@Override
 	public void update(long ms) {
-		// TODO Auto-generated method stub
 		super.update(ms);
+		
+		this.playerWizard.update();
+		this.CPUWizard.update();
 	}
 
 	@Override

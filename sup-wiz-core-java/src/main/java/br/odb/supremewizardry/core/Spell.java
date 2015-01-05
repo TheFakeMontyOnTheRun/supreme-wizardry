@@ -29,4 +29,7 @@ public abstract class Spell {
 		this.name = name;
 		this.description = description;
 	}
+	
+	public abstract void consequencesOn( Wizard caster );
+	public abstract void actOn( Wizard target );
 }
