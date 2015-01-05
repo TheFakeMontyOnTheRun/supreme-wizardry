@@ -1,0 +1,49 @@
+package br.odb.supremewizardry.core;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import br.odb.supremewizardry.core.FloatRange.ValueObserver;
+import br.odb.supremewizardry.core.Spell.SpellType;
+
+public abstract class Wizard implements ValueObserver {
+
+	final Map< SpellType, FloatRange > magicalPoints = new HashMap< SpellType, FloatRange>();
+	final FloatRange lifePoints = new FloatRange( 0.0f, 100.0f, 100.0f, this );
+	final Set<Spell> spells = new HashSet< Spell>();
+	final String name;
+	final String description;
+	
+	public Wizard( String name, String description ) {
+		this.name = name;
+		this.description = description;
+	}
+	
+	public abstract void update();
+	
+	public abstract void init();
+
+	public abstract void onDeath();
+	
+	public abstract void onMagicDepleted();
+	
+	public abstract void onSuperPowered();
+	
+	public void onMinimumValueReached( FloatRange range ) {
+		if ( range == lifePoints ) {
+			onDeath();
+		}
+	}
+	
+	public void onMaximumValueReached( FloatRange range ) {
+		for ( FloatRange r : magicalPoints.values() ) {
+			if ( r.isAtMaximum() ) {
+				return;
+			}
+		}
+		
+		onSuperPowered();
+	}
+}
