@@ -82,4 +82,39 @@ public abstract class Wizard implements ValueObserver {
 		
 		onSuperPowered();
 	}
+
+	public void takeLifePoints(int i, int j) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void confuseFor(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void getMagicPointsFromAllSummoned() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void drainMagicPointsFromAllSummoned() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void addLifePoints(int i, int j) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void destroyAllSummonedCreatures() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Creature summon(Creature creature) {
+
+		return creature;
+	}
 }

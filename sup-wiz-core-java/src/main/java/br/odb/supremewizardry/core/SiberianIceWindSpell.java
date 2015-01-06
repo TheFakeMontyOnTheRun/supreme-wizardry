@@ -8,9 +8,12 @@ public class SiberianIceWindSpell extends Spell {
 
 	@Override
 	public void consequencesOn(Wizard caster) {
+		caster.takeLifePoints( 1, 2 );
+
 	}
 
 	@Override
 	public void actOn(Wizard target) {
+		target.takeLifePoints( 2, 4 );
 	}
 }

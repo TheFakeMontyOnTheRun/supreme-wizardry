@@ -4,6 +4,11 @@ public class DummyWizard2 extends Wizard {
 
 	public DummyWizard2() {
 		super( "Merlin", "Wise and resourceful" );
+		
+		spells.add( new GuidanceSpell() );
+		spells.add( new FireballSpell() );
+		spells.add( new AlchemySpell() );
+		spells.add( new SummonGiantOwlSpell() );
 	}
 	
 	@Override

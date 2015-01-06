@@ -12,5 +12,6 @@ public class MagicDaggerSpell extends Spell {
 
 	@Override
 	public void actOn(Wizard target) {
+		target.takeLifePoints( 3, 1 );
 	}
 }
