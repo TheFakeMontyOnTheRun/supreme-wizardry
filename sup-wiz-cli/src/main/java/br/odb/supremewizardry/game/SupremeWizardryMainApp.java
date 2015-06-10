@@ -16,9 +16,15 @@ public class SupremeWizardryMainApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
-		new SupremeWizardryGame().createDefaultClient().setAppName("Supreme Wizardry")
+		SupremeWizardryGame game = new SupremeWizardryGame();
+		Thread t = new Thread( game );
+		
+		game.createDefaultClient()
+				.setAppName("Supreme Wizardry")
 				.setAuthorName("Daniel Monteiro")
-				.setLicenseName("3 Clause BSD").setReleaseYear(2015).start();
+				.setLicenseName("3 Clause BSD")
+				.setReleaseYear(2015);
+		
+		t.start();
 	}
 }
