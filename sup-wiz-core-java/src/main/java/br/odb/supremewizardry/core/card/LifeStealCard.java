@@ -3,22 +3,22 @@ package br.odb.supremewizardry.core.card;
 import br.odb.supremewizardry.core.Card;
 import br.odb.supremewizardry.core.Wizard;
 
-public class CorrosionCard extends Card {
+public class LifeStealCard extends Card {
 
-	public CorrosionCard() {
-		super("Corrosion", "Corrosion");
+	public LifeStealCard() {
+		super( "Life Steal", "Life Steal" );
 	}
 
 	@Override
 	public void consequencesOn(Wizard caster) {
-
-
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void actOn(Wizard target) {
-
-
+		// TODO Auto-generated method stub
+		
 	}
 
 }
