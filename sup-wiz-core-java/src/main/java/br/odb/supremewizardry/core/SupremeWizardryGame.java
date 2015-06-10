@@ -1,6 +1,8 @@
 package br.odb.supremewizardry.core;
 
 import br.odb.gameapp.ConsoleApplication;
+import br.odb.supremewizardry.core.commands.CastSpellCommand;
+import br.odb.supremewizardry.core.commands.DisplayStatusCommand;
 
 public class SupremeWizardryGame extends ConsoleApplication {
 

@@ -1,6 +1,9 @@
-package br.odb.supremewizardry.core;
+package br.odb.supremewizardry.core.cards.legacy;
 
-public class SiberianIceWindSpell extends Spell {
+import br.odb.supremewizardry.core.Card;
+import br.odb.supremewizardry.core.Wizard;
+
+public class SiberianIceWindSpell extends Card {
 
 	public SiberianIceWindSpell() {
 		super("Siberian Icy Wind", "Blows a strong gush of wind towards the caster, causing damage due to ice crystals");	

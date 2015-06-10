@@ -1,6 +1,9 @@
-package br.odb.supremewizardry.core;
+package br.odb.supremewizardry.core.cards.legacy;
 
-public class DeceptionSpell extends Spell {
+import br.odb.supremewizardry.core.Card;
+import br.odb.supremewizardry.core.Wizard;
+
+public class DeceptionSpell extends Card {
 
 	public DeceptionSpell() {
 		super( "Deception", "For the 5 turns, the target will not see the correct spell that hits him or that he casts, causing him to cast the wrong spells, but not realizing so." );

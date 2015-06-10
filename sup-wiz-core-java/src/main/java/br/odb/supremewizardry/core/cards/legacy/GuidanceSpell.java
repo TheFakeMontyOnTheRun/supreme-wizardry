@@ -1,6 +1,9 @@
-package br.odb.supremewizardry.core;
+package br.odb.supremewizardry.core.cards.legacy;
 
-public class GuidanceSpell extends Spell {
+import br.odb.supremewizardry.core.Card;
+import br.odb.supremewizardry.core.Wizard;
+
+public class GuidanceSpell extends Card {
 
 	public GuidanceSpell() {
 		super( "Guidance", "provide clarity (and bonus vitality) to the target, so that all his summoned creatures will be called off." );

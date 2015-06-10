@@ -1,4 +1,4 @@
-package br.odb.supremewizardry.core;
+package br.odb.supremewizardry.core.commands;
 
 import br.odb.gameapp.ConsoleApplication;
 import br.odb.gameapp.UserCommandLineAction;

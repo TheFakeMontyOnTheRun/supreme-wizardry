@@ -1,6 +1,9 @@
-package br.odb.supremewizardry.core;
+package br.odb.supremewizardry.core.cards.legacy;
 
-public class AlchemySpell extends Spell {
+import br.odb.supremewizardry.core.Card;
+import br.odb.supremewizardry.core.Wizard;
+
+public class AlchemySpell extends Card {
 
 	public AlchemySpell() {
 		super("Alchemy", "Extract magic points from all his summoned creatures in the game, thus claiming one turn from their lifespan. This will also drain magic points from the target's creatures, but without conceding any bonus.");

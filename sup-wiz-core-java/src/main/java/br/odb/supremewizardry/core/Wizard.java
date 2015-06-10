@@ -1,18 +1,18 @@
 package br.odb.supremewizardry.core;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import br.odb.supremewizardry.core.FloatRange.ValueObserver;
-import br.odb.supremewizardry.core.Spell.SpellType;
 
 public abstract class Wizard implements ValueObserver {
 
-	final Map< SpellType, FloatRange > magicalPoints = new HashMap< SpellType, FloatRange>();
-	final FloatRange lifePoints = new FloatRange( "HP", 0.0f, 100.0f, 100.0f, this );
-	final Set<Spell> spells = new HashSet< Spell>();
+	final FloatRange lifePoints = new FloatRange( "VIT", 0.0f, 100.0f, 100.0f, this );
+	final FloatRange strengthPoints = new FloatRange( "STR", 0.0f, 100.0f, 100.0f, this );
+	final FloatRange inteligencePoints = new FloatRange( "INT", 0.0f, 100.0f, 100.0f, this );
+	final Set<Card> spells = new HashSet< Card>();
+	final Set<Equipment> equipment = new HashSet< Equipment>();
+	
 	final String name;
 	final String description;
 	
@@ -39,23 +39,16 @@ public abstract class Wizard implements ValueObserver {
 		sb.append( '\n' );
 		sb.append( lifePoints);
 		sb.append( '\n' );
-		for ( FloatRange r : magicalPoints.values()) {
-			sb.append( r );
-			sb.append( '\n' );
-		}
-		
- 		sb.append( "-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+		sb.append( strengthPoints);
+		sb.append( '\n' );
+		sb.append( inteligencePoints);
+		sb.append( "-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 		return sb.toString();
 	}
 
 	public Wizard( String name, String description ) {
 		this.name = name;
 		this.description = description;
-		
-		for ( SpellType st : SpellType.values() ) {
-			magicalPoints.put( st, new FloatRange( st.prettyName, 0.0f, 100.0f, 50.0f ) );
-		}
-
 	}
 	
 	public abstract void update();
@@ -74,13 +67,6 @@ public abstract class Wizard implements ValueObserver {
 	}
 	
 	public void onMaximumValueReached( FloatRange range ) {
-		for ( FloatRange r : magicalPoints.values() ) {
-			if ( r.isAtMaximum() ) {
-				return;
-			}
-		}
-		
-		onSuperPowered();
 	}
 
 	public void takeLifePoints(int i, int j) {
@@ -111,10 +97,5 @@ public abstract class Wizard implements ValueObserver {
 	public void destroyAllSummonedCreatures() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	public Creature summon(Creature creature) {
-
-		return creature;
 	}
 }

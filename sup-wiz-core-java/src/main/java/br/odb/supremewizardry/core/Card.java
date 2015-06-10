@@ -3,7 +3,7 @@ package br.odb.supremewizardry.core;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class Spell {
+public abstract class Card {
 	
 	public enum SpellType {
 		
@@ -25,7 +25,7 @@ public abstract class Spell {
 	public final String name;
 	public final String description;
 	
-	public Spell( String name, String description ) {
+	public Card( String name, String description ) {
 		this.name = name;
 		this.description = description;
 	}

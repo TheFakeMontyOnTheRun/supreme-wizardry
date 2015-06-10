@@ -1,5 +1,9 @@
 package br.odb.supremewizardry.core;
 
+import br.odb.supremewizardry.core.cards.legacy.DeceptionSpell;
+import br.odb.supremewizardry.core.cards.legacy.MagicDaggerSpell;
+import br.odb.supremewizardry.core.cards.legacy.SiberianIceWindSpell;
+
 public class DummyWizard1 extends Wizard {
 
 	public DummyWizard1() {
@@ -7,7 +11,6 @@ public class DummyWizard1 extends Wizard {
 		
 		spells.add( new DeceptionSpell() );
 		spells.add( new MagicDaggerSpell() );
-		spells.add( new SummonGhostBearSpell() );
 		spells.add( new SiberianIceWindSpell() );
 	}
 	
