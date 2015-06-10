@@ -42,6 +42,7 @@ public abstract class Wizard implements ValueObserver {
 		sb.append( strengthPoints);
 		sb.append( '\n' );
 		sb.append( inteligencePoints);
+		sb.append( '\n' );
 		sb.append( "-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 		return sb.toString();
 	}
