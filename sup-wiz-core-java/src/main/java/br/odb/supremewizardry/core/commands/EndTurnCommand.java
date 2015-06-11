@@ -4,7 +4,11 @@ import br.odb.gameapp.ConsoleApplication;
 import br.odb.gameapp.UserCommandLineAction;
 import br.odb.supremewizardry.core.SupremeWizardryGame;
 
-public class DisplayStatusCommand extends UserCommandLineAction {
+public class EndTurnCommand extends UserCommandLineAction {
+
+	public EndTurnCommand() {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public String getHelp() {
@@ -20,15 +24,13 @@ public class DisplayStatusCommand extends UserCommandLineAction {
 
 	@Override
 	public void run(ConsoleApplication app, String arg1) throws Exception {
-		
 		SupremeWizardryGame game = (SupremeWizardryGame) app;
-		
-		app.getClient().printNormal( game.currentWizard.toString() );
-
+		app.getClient().printNormal( "New turn!" );
+		game.endTurn();
 	}
 
 	@Override
 	public String toString() {
-		return "status";
+		return "end-turn";
 	}
 }
