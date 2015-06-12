@@ -21,5 +21,8 @@ public class SilenceCard extends Card {
 		
 	}
 
-
+	@Override
+	public Card clone() {
+		return new SilenceCard();
+	}
 }

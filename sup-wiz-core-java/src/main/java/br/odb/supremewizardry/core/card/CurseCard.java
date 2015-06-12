@@ -21,4 +21,8 @@ public class CurseCard extends Card {
 		
 	}
 
+	@Override
+	public Card clone() {
+		return new CurseCard();
+	}
 }

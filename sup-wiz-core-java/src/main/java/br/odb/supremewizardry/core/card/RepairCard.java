@@ -21,4 +21,8 @@ public class RepairCard extends Card {
 		
 	}
 
+	@Override
+	public Card clone() {
+		return new RepairCard();
+	}
 }

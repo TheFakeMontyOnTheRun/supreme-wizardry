@@ -30,6 +30,7 @@ public abstract class Card {
 		this.description = description;
 	}
 	
+	public abstract Card clone();
 	public abstract void consequencesOn( Wizard caster );
 	public abstract void actOn( Wizard target );
 }

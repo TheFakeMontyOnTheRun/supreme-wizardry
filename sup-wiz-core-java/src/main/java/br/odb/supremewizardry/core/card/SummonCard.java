@@ -21,5 +21,8 @@ public class SummonCard extends Card {
 		
 	}
 
-
+	@Override
+	public Card clone() {
+		return new SummonCard();
+	}
 }

@@ -21,5 +21,8 @@ public class MindTwistCard extends Card {
 		
 	}
 
-
+	@Override
+	public Card clone() {
+		return new MindTwistCard();
+	}
 }

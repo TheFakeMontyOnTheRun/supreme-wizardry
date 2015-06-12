@@ -21,4 +21,8 @@ public class IceboltCard extends Card {
 		
 	}
 
+	@Override
+	public Card clone() {
+		return new IceboltCard();
+	}
 }

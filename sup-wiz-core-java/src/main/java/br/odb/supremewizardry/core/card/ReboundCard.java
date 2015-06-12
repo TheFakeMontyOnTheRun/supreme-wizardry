@@ -21,5 +21,8 @@ public class ReboundCard  extends Card {
 		
 	}
 
-
+	@Override
+	public Card clone() {
+		return new ReboundCard();
+	}
 }

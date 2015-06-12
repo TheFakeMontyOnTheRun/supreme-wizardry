@@ -21,4 +21,8 @@ public class CorrosionCard extends Card {
 
 	}
 
+	@Override
+	public Card clone() {
+		return new CorrosionCard();
+	}
 }

@@ -21,4 +21,8 @@ public class LifeStealCard extends Card {
 		
 	}
 
+	@Override
+	public Card clone() {
+		return new LifeStealCard();
+	}
 }

@@ -21,5 +21,8 @@ public class ArcaneBlastCard extends Card {
 		
 	}
 
-
+	@Override
+	public Card clone() {
+		return new ArcaneBlastCard();
+	}
 }

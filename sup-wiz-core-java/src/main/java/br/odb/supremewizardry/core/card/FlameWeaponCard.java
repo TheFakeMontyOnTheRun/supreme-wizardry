@@ -21,5 +21,8 @@ public class FlameWeaponCard extends Card {
 		
 	}
 
-
+	@Override
+	public Card clone() {
+		return new FlameWeaponCard();
+	}
 }

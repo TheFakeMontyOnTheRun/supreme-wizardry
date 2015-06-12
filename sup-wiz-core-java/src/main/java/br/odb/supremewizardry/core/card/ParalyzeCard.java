@@ -21,5 +21,10 @@ public class ParalyzeCard  extends Card {
 		
 	}
 
+	@Override
+	public Card clone() {
+		return null;
+	}
+
 
 }

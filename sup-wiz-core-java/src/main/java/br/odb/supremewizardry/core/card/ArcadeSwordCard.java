@@ -21,4 +21,8 @@ public class ArcadeSwordCard  extends Card {
 		
 	}
 
+	@Override
+	public Card clone() {
+		return new ArcadeSwordCard();
+	}
 }

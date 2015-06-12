@@ -21,4 +21,8 @@ public class PlagueCard extends Card {
 		
 	}
 
+	@Override
+	public Card clone() {
+		return new PlagueCard();
+	}
 }
