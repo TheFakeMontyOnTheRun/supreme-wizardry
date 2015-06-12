@@ -1,6 +1,10 @@
 package br.odb.supremewizardry.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.odb.gameapp.ConsoleApplication;
+import br.odb.supremewizardry.core.card.*;
 import br.odb.supremewizardry.core.commands.EndTurnCommand;
 import br.odb.supremewizardry.core.commands.PickCardCommand;
 import br.odb.supremewizardry.core.commands.UseCardCommand;
@@ -8,18 +12,48 @@ import br.odb.supremewizardry.core.commands.DisplayStatusCommand;
 
 public class SupremeWizardryGame extends ConsoleApplication {
 
+	Card[] possibleCards = new Card[]{
+		new ArcadeShieldCard(),
+		new ArcadeSwordCard(),
+		new ArcaneBlastCard(),
+		new ChainLightningCard(),
+		new ConcentrateCard(),
+		new CorrosionCard(),
+		new CurseCard(),
+		new FireboltCard(),
+		new FlameWeaponCard(),
+		new IceboltCard(),
+		new LifeStealCard(),
+		new MindTwistCard(),
+		new ParalyzeCard(),
+		new PlagueCard(),
+		new ReboundCard(),
+		new RepairCard(),
+		new SilenceCard(),
+		new SummonCard()
+	};
+
 	private Wizard wizard1;
 	private Wizard wizard2;
 	public Wizard currentWizard;
-
+	final public List< Card > tableCards = new ArrayList<>(); 
+	
 	public SupremeWizardryGame() {
 		super();
+		
+		shuffleCardsIntoTable();
 		
 		wizard1 = new DummyWizard1();
 		wizard2 = new DummyWizard2();
 		currentWizard = wizard1;
 	}
 	
+	private void shuffleCardsIntoTable() {
+		for ( int c = 0; c < 50; ++c ) {
+			tableCards.add( (Card) possibleCards[ (int)(Math.random() * possibleCards.length) ].clone() );
+		}
+	}
+
 	public void endTurn() {
 		if ( currentWizard != wizard1 ) {
 			currentWizard = wizard1;
