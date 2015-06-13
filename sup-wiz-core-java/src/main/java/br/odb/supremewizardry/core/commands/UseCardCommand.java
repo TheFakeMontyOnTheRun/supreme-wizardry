@@ -2,6 +2,7 @@ package br.odb.supremewizardry.core.commands;
 
 import br.odb.gameapp.ConsoleApplication;
 import br.odb.gameapp.UserCommandLineAction;
+import br.odb.supremewizardry.core.SupremeWizardryGame;
 
 public class UseCardCommand extends UserCommandLineAction {
 
@@ -17,9 +18,9 @@ public class UseCardCommand extends UserCommandLineAction {
 	}
 
 	@Override
-	public void run(ConsoleApplication arg0, String arg1) throws Exception {
-		// TODO Auto-generated method stub
-
+	public void run(ConsoleApplication app, String arg1) throws Exception {
+		SupremeWizardryGame game = (SupremeWizardryGame) app;
+		game.currentWizard.useCard( arg1 );
 	}
 
 	@Override
