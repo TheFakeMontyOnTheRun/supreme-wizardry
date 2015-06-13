@@ -46,6 +46,9 @@ public class SupremeWizardryGame extends ConsoleApplication {
 		wizard1 = new DummyWizard1();
 		wizard2 = new DummyWizard2();
 		currentWizard = wizard1;
+		
+		wizard1.takeCards( 4, tableCards );
+		wizard2.takeCards( 4, tableCards );
 	}
 	
 	private void shuffleCardsIntoTable() {

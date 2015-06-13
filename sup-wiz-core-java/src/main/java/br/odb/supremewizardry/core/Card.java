@@ -25,6 +25,11 @@ public abstract class Card {
 	public final String name;
 	public final String description;
 	
+	public String toString() {
+		return name + " - " + description;
+	}
+	
+	
 	public Card( String name, String description ) {
 		this.name = name;
 		this.description = description;
