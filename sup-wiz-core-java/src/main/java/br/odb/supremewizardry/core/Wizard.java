@@ -9,12 +9,19 @@ import br.odb.supremewizardry.core.FloatRange.ValueObserver;
 
 public abstract class Wizard implements ValueObserver {
 
-	final FloatRange lifePoints = new FloatRange("VIT", 0.0f, 100.0f, 50.0f,
+	final FloatRange lifePoints = new FloatRange("HP", 0.0f, 12.0f, 12.0f,
 			this);
-	final FloatRange strengthPoints = new FloatRange("STR", 0.0f, 100.0f,
-			50.0f, this);
-	final FloatRange inteligencePoints = new FloatRange("INT", 0.0f, 100.0f,
-			50.0f, this);
+
+	final FloatRange actionPoints = new FloatRange("AP", 0.0f, 5.0f, 5.0f,
+			this);
+
+	final FloatRange vitalityPoints = new FloatRange("VIT", 0.0f, 4.0f, 1.0f,
+			this);
+	final FloatRange strengthPoints = new FloatRange("STR", 0.0f, 4.0f,
+			1.0f, this);
+	final FloatRange inteligencePoints = new FloatRange("INT", 0.0f, 4.0f,
+			1.0f, this);
+	
 	final List<Card> spells = new ArrayList<Card>();
 	final Set<Equipment> equipment = new HashSet<Equipment>();
 	public Wizard target;
@@ -42,10 +49,16 @@ public abstract class Wizard implements ValueObserver {
 		sb.append('\n');
 		sb.append(lifePoints);
 		sb.append('\n');
+		sb.append(actionPoints);
+		sb.append('\n');
+		sb.append('\n');
+		sb.append(vitalityPoints);
+		sb.append('\n');
 		sb.append(strengthPoints);
 		sb.append('\n');
 		sb.append(inteligencePoints);
 		sb.append("\n------\nCards:\n");
+		
 		for (Card c : this.spells) {
 			sb.append(c.toString());
 			sb.append('\n');
@@ -136,5 +149,11 @@ public abstract class Wizard implements ValueObserver {
 			return card;
 		}
 		return null;
+	}
+
+	public void takeCardsMake4(List<Card> cards) {
+		if ( this.spells.size() < 4 ) {
+			this.takeCards( 4 - this.spells.size(), cards);
+		}
 	}
 }

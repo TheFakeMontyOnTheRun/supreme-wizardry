@@ -68,6 +68,8 @@ public class SupremeWizardryGame extends ConsoleApplication {
 		} else {
 			currentWizard = wizard2;
 		}
+		
+		currentWizard.takeCardsMake4( tableCards );
 	}
 	
 	
