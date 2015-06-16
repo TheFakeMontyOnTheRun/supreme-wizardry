@@ -10,15 +10,8 @@ public class RepairCard extends Card {
 	}
 
 	@Override
-	public void consequencesOn(Wizard caster) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void actOn(Wizard target) {
-		// TODO Auto-generated method stub
-		
+	public void actOn(Wizard caster, Wizard target) {
+		target.repairRandomEquipment();		
 	}
 
 	@Override

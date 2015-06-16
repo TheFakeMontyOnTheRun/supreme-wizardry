@@ -13,24 +13,24 @@ import br.odb.supremewizardry.core.commands.DisplayStatusCommand;
 public class SupremeWizardryGame extends ConsoleApplication {
 
 	Card[] possibleCards = new Card[]{
-		new ArcadeShieldCard(),
-		new ArcadeSwordCard(),
+//		new ArcadeShieldCard(),
+//		new ArcadeSwordCard(),
 		new ArcaneBlastCard(),
 		new ChainLightningCard(),
-		new ConcentrateCard(),
+//		new ConcentrateCard(),
 		new CorrosionCard(),
-		new CurseCard(),
-		new FireboltCard(),
-		new FlameWeaponCard(),
-		new IceboltCard(),
-		new LifeStealCard(),
-		new MindTwistCard(),
-		new ParalyzeCard(),
-		new PlagueCard(),
-		new ReboundCard(),
+//		new CurseCard(),
+//		new FireboltCard(),
+//		new FlameWeaponCard(),
+//		new IceboltCard(),
+//		new LifeStealCard(),
+//		new MindTwistCard(),
+//		new ParalyzeCard(),
+//		new PlagueCard(),
+//		new ReboundCard(),
 		new RepairCard(),
-		new SilenceCard(),
-		new SummonCard()
+//		new SilenceCard(),
+//		new SummonCard()
 	};
 
 	private Wizard wizard1;
@@ -43,8 +43,8 @@ public class SupremeWizardryGame extends ConsoleApplication {
 		
 		shuffleCardsIntoTable();
 		
-		wizard1 = new DummyWizard1();
-		wizard2 = new DummyWizard2();
+		wizard1 = new DummyWizard1( this );
+		wizard2 = new DummyWizard2( this );
 		wizard1.target = wizard2;
 		wizard2.target = wizard1;
 		currentWizard = wizard1;

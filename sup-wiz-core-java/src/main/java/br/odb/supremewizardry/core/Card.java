@@ -36,6 +36,5 @@ public abstract class Card {
 	}
 	
 	public abstract Card clone();
-	public abstract void consequencesOn( Wizard caster );
-	public abstract void actOn( Wizard target );
+	public abstract void actOn( Wizard caster, Wizard target );
 }

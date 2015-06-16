@@ -10,13 +10,7 @@ public class IceboltCard extends Card {
 	}
 
 	@Override
-	public void consequencesOn(Wizard caster) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void actOn(Wizard target) {
+	public void actOn(Wizard caster, Wizard target) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -127,4 +127,8 @@ public class FloatRange {
 
 		return current <= min;
 	}
+
+	public float getCurrentValue() {
+		return current;
+	}
 }

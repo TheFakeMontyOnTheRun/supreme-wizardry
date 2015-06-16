@@ -1,6 +1,7 @@
 package br.odb.supremewizardry.core.card;
 
 import br.odb.supremewizardry.core.Card;
+import br.odb.supremewizardry.core.Dice;
 import br.odb.supremewizardry.core.Wizard;
 
 public class ChainLightningCard extends Card {
@@ -10,14 +11,8 @@ public class ChainLightningCard extends Card {
 	}
 
 	@Override
-	public void consequencesOn(Wizard caster) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void actOn(Wizard target) {
-		// TODO Auto-generated method stub
+	public void actOn(Wizard caster, Wizard target) {
+		target.takeLifePoints( 1, 2 * Dice.from( ( int )caster.inteligencePoints.getCurrentValue() ).roll() );
 		
 	}
 

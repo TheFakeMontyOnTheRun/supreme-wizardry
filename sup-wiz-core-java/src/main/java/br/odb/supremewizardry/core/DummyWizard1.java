@@ -3,8 +3,8 @@ package br.odb.supremewizardry.core;
 
 public class DummyWizard1 extends Wizard {
 
-	public DummyWizard1() {
-		super( "Rasputin", "Powerful and mysterious" );
+	public DummyWizard1( SupremeWizardryGame game ) {
+		super( "Rasputin", "Powerful and mysterious", game );
 	}
 	
 	

@@ -17,4 +17,27 @@ public enum Dice {
 		return (int)( Math.random() * ( sides + 1) );
 				
 	}
+	
+	public static Dice from( int sides ) {
+		
+		if ( sides % 2 == 1 ) {
+			--sides;
+		}
+		
+		if  ( sides < 4 ) {
+			return D4;
+		}
+		
+		if  ( sides > 20 ) {
+			return D20;
+		}
+		
+		for ( Dice d : Dice.values() ) {
+			if ( d.sides == sides ) {
+				return d;
+			}
+		}
+		
+		return null;
+	}
 }

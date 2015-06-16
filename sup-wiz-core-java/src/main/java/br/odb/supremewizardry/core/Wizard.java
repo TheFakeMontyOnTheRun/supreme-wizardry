@@ -9,24 +9,32 @@ import br.odb.supremewizardry.core.FloatRange.ValueObserver;
 
 public abstract class Wizard implements ValueObserver {
 
-	final FloatRange lifePoints = new FloatRange("HP", 0.0f, 12.0f, 12.0f,
+	public final FloatRange lifePoints = new FloatRange("HP", 0.0f, 12.0f, 12.0f,
 			this);
 
-	final FloatRange actionPoints = new FloatRange("AP", 0.0f, 5.0f, 5.0f,
+	public final FloatRange actionPoints = new FloatRange("AP", 0.0f, 5.0f, 5.0f,
 			this);
 
-	final FloatRange vitalityPoints = new FloatRange("VIT", 0.0f, 4.0f, 1.0f,
+	public final FloatRange vitalityPoints = new FloatRange("VIT", 0.0f, 4.0f, 1.0f,
 			this);
-	final FloatRange strengthPoints = new FloatRange("STR", 0.0f, 4.0f,
+	public final FloatRange strengthPoints = new FloatRange("STR", 0.0f, 4.0f,
 			1.0f, this);
-	final FloatRange inteligencePoints = new FloatRange("INT", 0.0f, 4.0f,
+	public final FloatRange inteligencePoints = new FloatRange("INT", 0.0f, 4.0f,
 			1.0f, this);
 	
-	final List<Card> spells = new ArrayList<Card>();
-	final Set<Equipment> equipment = new HashSet<Equipment>();
+	public final List<Card> spells = new ArrayList<Card>();
+	
+	public final Set<Equipment> equipment = new HashSet<Equipment>();
+	
 	public Wizard target;
 	final String name;
 	final String description;
+
+	private Set<Equipment> destroyedItems;
+
+	private SupremeWizardryGame game;
+
+
 
 	@Override
 	public int hashCode() {
@@ -67,9 +75,10 @@ public abstract class Wizard implements ValueObserver {
 		return sb.toString();
 	}
 
-	public Wizard(String name, String description) {
+	public Wizard(String name, String description, SupremeWizardryGame game ) {
 		this.name = name;
 		this.description = description;
+		this.game = game;
 	}
 
 	public abstract void update();
@@ -134,8 +143,7 @@ public abstract class Wizard implements ValueObserver {
 	public void useCard(String arg1) {
 
 		Card card = getCard(arg1);
-		card.actOn(target);
-		card.consequencesOn(this);
+		card.actOn( this, target);
 		spells.remove(card);
 	}
 
@@ -155,5 +163,27 @@ public abstract class Wizard implements ValueObserver {
 		if ( this.spells.size() < 4 ) {
 			this.takeCards( 4 - this.spells.size(), cards);
 		}
+	}
+
+	public void destroyRandomEquipmentPiece() {
+		if ( equipment.size() > 0 ) {
+			int randomIndex = (int) (Math.random() * equipment.size());
+			Equipment toDestroy = (Equipment) equipment.toArray()[ randomIndex ];
+			equipment.remove( toDestroy );
+			destroyedItems.add( toDestroy );
+		}
+	}
+
+	public void repairRandomEquipment() {
+		if ( destroyedItems.size() > 0 ) {
+			int randomIndex = (int) (Math.random() * destroyedItems.size());
+			Equipment toDestroy = (Equipment) destroyedItems.toArray()[ randomIndex ];
+			destroyedItems.remove( toDestroy );
+			equipment.add( toDestroy );	
+		}
+	}
+
+	public void takeCardsFromMainPile(int amount) {
+		takeCards( amount, game.tableCards );		
 	}
 }

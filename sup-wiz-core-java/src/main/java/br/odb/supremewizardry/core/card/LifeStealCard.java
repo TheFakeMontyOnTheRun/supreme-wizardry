@@ -5,23 +5,16 @@ import br.odb.supremewizardry.core.Wizard;
 
 public class LifeStealCard extends Card {
 
-	int suckedLife;
-	
 	public LifeStealCard() {
 		super( "Life Steal", "Life Steal" );
 	}
 
 	@Override
-	public void consequencesOn(Wizard caster) {
+	public void actOn(Wizard caster, Wizard target) {
+		int suckedLife = 20;
 		int turns = 1;
+		target.takeLifePoints( turns , suckedLife );
 		caster.addLifePoints( turns, suckedLife );
-	}
-
-	@Override
-	public void actOn(Wizard target) {
-		suckedLife = 20;
-		int turns = 1;
-		target.takeLifePoints( turns , suckedLife );		
 	}
 
 	@Override

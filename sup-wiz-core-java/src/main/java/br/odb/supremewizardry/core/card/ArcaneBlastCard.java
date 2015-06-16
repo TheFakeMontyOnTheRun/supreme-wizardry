@@ -10,15 +10,9 @@ public class ArcaneBlastCard extends Card {
 	}
 
 	@Override
-	public void consequencesOn(Wizard caster) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void actOn(Wizard target) {
-		// TODO Auto-generated method stub
-		
+	public void actOn(Wizard caster, Wizard target) {
+		target.takeLifePoints( 1, 1 );
+		caster.takeCardsFromMainPile( 1 );
 	}
 
 	@Override

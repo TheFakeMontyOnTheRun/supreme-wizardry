@@ -10,15 +10,8 @@ public class CorrosionCard extends Card {
 	}
 
 	@Override
-	public void consequencesOn(Wizard caster) {
-
-
-	}
-
-	@Override
-	public void actOn(Wizard target) {
-
-
+	public void actOn(Wizard caster, Wizard target) {
+		target.destroyRandomEquipmentPiece();
 	}
 
 	@Override
