@@ -78,6 +78,7 @@ public class FloatRange {
 	
 	public void setCurrent( float current ) {
 		this.current = current;
+		checkBounds();
 	}
 	
 	public void setDelta( float delta ) {
@@ -100,6 +101,10 @@ public class FloatRange {
 
 		current += delta;
 
+		checkBounds();
+	}
+
+	private void checkBounds() {
 		if ( current < min ) {
 			current = min;
 			

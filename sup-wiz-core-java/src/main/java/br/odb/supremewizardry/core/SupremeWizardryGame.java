@@ -63,10 +63,17 @@ public class SupremeWizardryGame extends ConsoleApplication {
 	}
 
 	public void endTurn() {
+		currentWizard.restoreActionPoints();
+		
 		if ( currentWizard != wizard1 ) {
 			currentWizard = wizard1;
 		} else {
 			currentWizard = wizard2;
+		}
+		
+		if ( currentWizard.lifePoints.isAtMinimum() ) {
+			this.getClient().printNormal( "This match is over" );
+			doQuit();
 		}
 		
 		currentWizard.takeCardsMake4( tableCards );
@@ -91,8 +98,15 @@ public class SupremeWizardryGame extends ConsoleApplication {
 	public void onDataEntered(String data) {
 
 		super.onDataEntered(data);
-		try {
+		
+		if ( currentWizard.actionPoints.isAtMinimum() ) {
+			endTurn();
+			return;
+		}
+		
+		try {			
 			runCmd( data );
+			currentWizard.onAction();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -120,5 +134,6 @@ public class SupremeWizardryGame extends ConsoleApplication {
 
 	@Override
 	protected void doQuit() {
+		System.out.println( 0 );
 	}
 }

@@ -9,6 +9,10 @@ import br.odb.supremewizardry.core.FloatRange.ValueObserver;
 
 public abstract class Wizard implements ValueObserver {
 
+	public final FloatRange currentActionPointExpenditure = new FloatRange("EX", 0.0f, 2.0f, 4.0f,
+			this);
+
+	
 	public final FloatRange lifePoints = new FloatRange("HP", 0.0f, 12.0f, 12.0f,
 			this);
 
@@ -185,5 +189,14 @@ public abstract class Wizard implements ValueObserver {
 
 	public void takeCardsFromMainPile(int amount) {
 		takeCards( amount, game.tableCards );		
+	}
+
+	public void restoreActionPoints() {
+		actionPoints.setCurrent( 3.0f );
+		System.out.println( "Restoring action points " + actionPoints.getCurrentValue() );
+	}
+	
+	public void onAction() {
+		actionPoints.setCurrent( actionPoints.getCurrentValue() -currentActionPointExpenditure.getCurrentValue() );
 	}
 }
