@@ -106,7 +106,6 @@ public class SupremeWizardryGame extends ConsoleApplication {
 		
 		try {			
 			runCmd( data );
-			currentWizard.onAction();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

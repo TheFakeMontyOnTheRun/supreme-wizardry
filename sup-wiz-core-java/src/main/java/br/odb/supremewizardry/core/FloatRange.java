@@ -136,4 +136,12 @@ public class FloatRange {
 	public float getCurrentValue() {
 		return current;
 	}
+
+	public float getMinimum() {
+		return min;
+	}
+	
+	public float getMaximum() {
+		return max;
+	}
 }
