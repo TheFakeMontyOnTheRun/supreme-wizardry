@@ -3,9 +3,9 @@ package br.odb.supremewizardry.core.card;
 import br.odb.supremewizardry.core.Card;
 import br.odb.supremewizardry.core.Wizard;
 
-public class ArcadeShieldCard extends Card {
+public class ArcaneShieldCard extends Card {
 
-	public ArcadeShieldCard() {
+	public ArcaneShieldCard() {
 		super("Arcade Shield", "Arcane Shield");
 	}
 
@@ -17,6 +17,6 @@ public class ArcadeShieldCard extends Card {
 
 	@Override
 	public Card clone() {
-		return new ArcadeShieldCard();
+		return new ArcaneShieldCard();
 	}
 }
