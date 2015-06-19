@@ -39,6 +39,9 @@ public abstract class Wizard implements ValueObserver {
 	private SupremeWizardryGame game;
 
 
+	private final List<Effect> effects = new ArrayList<>();
+
+
 
 	@Override
 	public int hashCode() {
@@ -85,7 +88,31 @@ public abstract class Wizard implements ValueObserver {
 		this.game = game;
 	}
 
-	public abstract void update();
+	public void update() {
+		currentActionPointExpenditure.update();
+		lifePoints.update();
+		actionPoints.update();
+		vitalityPoints.update();
+		strengthPoints.update();
+		inteligencePoints.update();
+		
+		ArrayList< Effect > toRemove = new ArrayList<>();
+		
+		for ( Effect e : effects ) {
+			
+			e.update();
+			System.out.println( e + " is in effect" );
+			
+			if ( e.getTurnsLeft() <= 0 ) {
+				toRemove.add( e );
+			}
+		}
+		
+		for ( Effect e : toRemove ) {
+			effects.remove( e );
+			System.out.println( e + " is done" );
+		}		
+	}
 
 	public abstract void onDeath();
 
@@ -198,5 +225,10 @@ public abstract class Wizard implements ValueObserver {
 	
 	private void onAction() {
 		actionPoints.setCurrent( actionPoints.getCurrentValue() -currentActionPointExpenditure.getCurrentValue() );
+	}
+
+	public void addLingeringEffect(FloatRange statAffected, int delta, int turns) {
+		Effect effect = new Effect( statAffected, delta, turns );
+		effects.add( effect );
 	}
 }

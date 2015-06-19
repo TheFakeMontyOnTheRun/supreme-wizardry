@@ -14,7 +14,7 @@ public enum Dice {
 	}
 	
 	public int roll() {
-		return (int)( Math.random() * ( sides + 1) );
+		return (int)( Math.random() * ( sides - 1 ) ) + 1;
 				
 	}
 	

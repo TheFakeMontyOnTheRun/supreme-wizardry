@@ -6,7 +6,7 @@ import br.odb.supremewizardry.core.Wizard;
 public class RepairCard extends Card {
 
 	public RepairCard() {
-		super( "Repair", "Repait" );
+		super( "Repair", "Repair" );
 	}
 
 	@Override

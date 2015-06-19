@@ -11,7 +11,7 @@ public class SilenceCard extends Card {
 
 	@Override
 	public void actOn(Wizard caster, Wizard target) {
-		// TODO Auto-generated method stub
+		target.actionPoints.setCurrent( target.actionPoints.getMinimum());
 		
 	}
 

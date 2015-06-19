@@ -9,8 +9,7 @@ public class DummyWizard2 extends Wizard {
 	
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		super.update();		
 	}
 
 

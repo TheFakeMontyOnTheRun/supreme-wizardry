@@ -77,6 +77,8 @@ public class FloatRange {
 	private ValueObserver valueObserver;
 	
 	public void setCurrent( float current ) {
+	
+		System.out.println( "setting " + current + " at " + label  );
 		this.current = current;
 		checkBounds();
 	}
@@ -100,7 +102,7 @@ public class FloatRange {
 	public void update() {
 
 		current += delta;
-
+		
 		checkBounds();
 	}
 

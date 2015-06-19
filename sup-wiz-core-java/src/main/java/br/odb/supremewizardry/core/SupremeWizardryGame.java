@@ -30,9 +30,6 @@ public static enum Teams {
 	}
 }
 
-
-
-
 	Card[] possibleCards = new Card[]{
 //		new ArcadeShieldCard(),
 //		new ArcadeSwordCard(),
@@ -46,11 +43,11 @@ public static enum Teams {
 //		new IceboltCard(),
 //		new LifeStealCard(),
 //		new MindTwistCard(),
-//		new ParalyzeCard(),
+		new ParalyzeCard(),
 //		new PlagueCard(),
 //		new ReboundCard(),
 		new RepairCard(),
-//		new SilenceCard(),
+		new SilenceCard(),
 //		new SummonCard()
 	};
 
@@ -112,6 +109,7 @@ public static enum Teams {
 		}
 		
 		currentWizard.takeCardsMake4( tableCards );
+		this.updateGameState();
 	}
 	
 	
@@ -157,9 +155,10 @@ public static enum Teams {
 	@Override
 	public void update(long ms) {
 		super.update(ms);
-		
-		this.wizard1.update();
-		this.wizard2.update();
+	}
+	
+	void updateGameState() {
+		this.currentWizard.update();
 	}
 
 	@Override
